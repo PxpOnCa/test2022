@@ -1,0 +1,40 @@
+/* all the ul that have the same parent as p */
+p~ul { 
+    background: #ff0000;
+}
+
+
+/* all the child elements by specified level */
+div div ul {
+    background: blue;
+}
+
+div ul {
+    font-weight: bold;
+}
+
+ul > li {
+    color: cyan;
+}
+
+/* the child elements that have the specified element as immediate parent*/
+ul#test1 > li {
+    color: yellow;
+}
+
+/* the elements seprated by , will have the same format */
+li#test2, li#test3 {
+    font-style: italic;
+}
+
+/* + selects the element immediately follow the specified elemmet */
+li#test4+li,li#test5+li{
+    color: orange;
+}
+
+a[href^="https://www.google.com"] {
+    color: red;
+    font-weight: bold;
+    font-size: 48px;
+    font-style: italic;
+}

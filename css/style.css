@@ -1,0 +1,153 @@
+/* Named Selectors */
+h1 {
+    color: white;
+}
+
+h2 {
+    color: purple;
+}
+/* ID Selectors */
+#home {
+    background-color: yellow;
+    padding: 5%;    /* top | right | bottom | left, relative to the size of the containing block*/
+}
+
+section#home {
+    background-color: green;    /* the latter format will overwrite the former */
+}
+
+/* Class Selectors */
+.about {
+    color: red;
+}
+section.about {
+    padding: 5%;
+}
+
+/* Contextual Selectors */
+/* Most specific */
+section.about .container p {
+    color: blue;    /* the more specific format will overwrite the color: red */
+}
+
+/* 2nd most specific */
+.about > p {
+    color: #000;
+}
+
+/* 3rd most specific */
+section > p {
+    color: red;
+}
+
+/* Grouped Selectors */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, a, li {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Pseudo-Class Selector (For Link States) */
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: orange;
+}
+
+a:focus {
+    color: purple;
+}
+
+a:hover {
+    color: black;
+    font-size: 22px;
+}
+
+a:active {
+    color: green;
+}
+
+/* Structural Pseudo-Class Selector */
+section ul li:nth-child(3n+3) {
+    background-color: yellow;
+}
+
+/* More specific */
+section ul li:nth-child(odd) {
+    background-color: green;
+    color: white;
+}
+
+/* You might think this will make the first paragraph red, but it won’t! It doesn't affect the page because the h1 is the first child of the element with the .about class, not a p.
+*/
+.about > p:first-child(odd) {
+    color: red;
+}
+
+/* The following works fine */
+section ul li:first-child {
+    color: yellow;
+}
+
+section ul li:last-child {
+    color: red;
+}
+
+/* Pseudo-Element Selector */
+p::first-line {
+    font-weight: bold;
+    font-size: 22px;
+    color: orange;
+}
+
+p::first-letter {
+    font-size: 150%;
+}
+
+h1::before {
+    content: "Note- ";
+}
+
+h1::after {
+    content: "!!!!!";
+}
+
+section ul li:first-child::before {
+    content: "f170";
+}
+
+/* Combinator Selector */
+.about p+p {
+    font-size: 34px;
+}
+
+/* Attribute Selector */
+section[class] {
+    border: solid 4px pink;     /* the section with class name will be applied the format */
+}
+
+a[href^="https://lipsum.com"] {
+    color: green;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+a[href^="https://www.google.com"] {
+    color: red;
+    font-weight: bold;
+    font-size: 48px;
+    font-style: italic;
+}
+
+/* Combining Selectors */
+.container h2[lang|="en"] + p {
+    font-size: 62px;
+}
+
+section[class|="masthead"] h1+h1 {
+    color: red;
+}
